@@ -34,13 +34,57 @@ ggplot(data = bmax, aes(x = date, y = usd_raw, width  = 120, fill = "#FFC72C" ))
   scale_x_continuous(limits=c(min(bmax$date)-200,max(bmax$date)+200))+
   geom_text(aes(label=iso_a3),position=position_stack(0.5), angle = 90, color ="#ff8c00" , fontface = "bold", size= 4) + 
   geom_text(aes(label=date),hjust=-0.25, angle = 90, color ="#ff8c00" , fontface = "bold") + 
- scale_y_continuous(limits=c(-max(bmax$usd_raw),1))+
- geom_polygon(data = box, aes(x = x , y = y ))+    scale_fill_manual(values = "#DA291C")  +
-annotation_custom(g, xmin=min(bmax$date)+20, xmax=max(bmax$date)+20, ymin=-0.55, ymax=-0.2) + 
+  scale_y_continuous(limits=c(-max(bmax$usd_raw),1))+
+  geom_polygon(data = box, aes(x = x , y = y ))+    scale_fill_manual(values = "#DA291C")  +
+  annotation_custom(g, xmin=min(bmax$date)+20, xmax=max(bmax$date)+20, ymin=-0.55, ymax=-0.2) + 
   labs(title = "Countries with highest Raw index relative to the US dollar per year:") + 
   theme_minimal()+ theme(legend.position = "none" ,axis.text.x=element_blank(), axis.title.x=element_blank()) 
 
 
-                  dev.off()
-                  
-                  
+dev.off()
+
+
+
+png("Top_countries_raw_index_prerotation.png", height =1024  , width =  512)
+ggplot(data = bmax, aes(x = date, y = usd_raw, width  = 120, fill = "#FFC72C" )) + 
+  geom_bar(stat = "identity", fill = "#FFC72C",color = "#FFa500", size = 1.3 , position = position_dodge(width=1.5)) + 
+  scale_x_continuous(limits=c(min(bmax$date)-200,max(bmax$date)+200))+
+  geom_text(aes(label=iso_a3),position=position_stack(0.5), angle = 90, color ="#ff8c00" , fontface = "bold", size= 4) + 
+  geom_text(aes(label=date),hjust=-0.25, angle = 90, color ="#ff8c00" , fontface = "bold") + 
+  scale_y_continuous(limits=c(-max(bmax$usd_raw),1))+
+  geom_polygon(data = box, aes(x = x , y = y ))+    scale_fill_manual(values = "#DA291C")  +
+  annotation_custom(g, xmin=min(bmax$date)+20, xmax=max(bmax$date)+20, ymin=-0.55, ymax=-0.2) + 
+  labs(title = "Countries with highest Raw index relative to the US dollar per year:") + 
+  theme_minimal()+ theme(legend.position = "none" ,axis.text.x=element_blank(), axis.title.x=element_blank()) 
+
+
+dev.off()
+
+
+
+
+
+
+
+
+png("Top_countries_raw_index.png", height =1024  , width =  512)
+ggplot(data = bmax, aes(x = date, y = usd_raw, width  = 120, fill = "#FFC72C" )) + 
+  geom_bar(stat = "identity", fill = "#FFC72C",color = "#FFa500", size = 1.3 , position = position_dodge(width=1.5)) + 
+  scale_x_continuous(limits=c(min(bmax$date)-200,max(bmax$date)+200))+
+  geom_text(aes(label=iso_a3),position=position_stack(0.5), angle = 90, color ="#ff8c00" , fontface = "bold", size= 4) + 
+  geom_text(aes(label=date),hjust=-0.25, angle = 90, color ="#ff8c00" , fontface = "bold") + 
+  scale_y_continuous(limits=c(-max(bmax$usd_raw),1),name="Countries with highest Raw index relative to the US dollar per year:")+
+  geom_polygon(data = box, aes(x = x , y = y ))+    scale_fill_manual(values = "#DA291C")  +
+  annotation_custom(g, xmin=min(bmax$date)+20, xmax=max(bmax$date)+20, ymin=-0.55, ymax=-0.2) + 
+ # labs(title = "Countries with highest Raw index relative to the US dollar per year:") + 
+  theme_minimal()+ theme(legend.position = "none" ,axis.text.x=element_blank(), axis.title.x=element_blank()) +
+theme(axis.title.y=element_text(size=20))
+
+dev.off()
+
+
+
+
+
+
+
