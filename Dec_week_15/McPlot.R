@@ -39,6 +39,8 @@ qq =   q + geom_hline(yintercept = 0)+
    dev.off()
 #highlight( hqq , on = "plotly_hover", off = "plotly_doubleclick",dynamic = T , opacityDim = 0.01, selected = s)
 
+   
+   
   
   
    qq =   q + geom_hline(yintercept = 0)+
